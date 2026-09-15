@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NATURAGLOW — Natural Beauty, Expert Care &amp; Luxury Skincare</title>
+<meta name="description" content="Natural, clinically-backed skincare and beauty treatments. Book facials, hair styling, makeup, and lash appointments, or shop clean botanical skincare online at Naturaglow."/>
+<meta name="theme-color" content="#382014"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C68B59' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18m0-18C7.5 3 4 6.5 4 11c0 5 8 10 8 10s8-5 8-10c0-4.5-3.5-8-8-8z'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<!-- Google Fonts: Playfair Display for luxury editorial serif, Plus Jakarta Sans for refined sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Precompiled, purged Tailwind build (see package.json "build:css") instead of the in-browser CDN compiler -->
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<!-- Preload the LCP hero image so it starts fetching before CSS/JS finish -->
+<link as="image" fetchpriority="high" href="https://lh3.googleusercontent.com/aida-public/AB6AXuBjVOI2axkX0kJOmhaXUK4dPF2PDBiBD5pxxRImffkDPLHW3NslIVDICZFX1KwCXcyHasfaBeRvykHEu7V-PDW3kI6wPm9DNq0NWDamim8FSziFHexQlOAO0NWGVvbnLuuJ4rKiKZGS6yrEQJ7ruzobX6ycMp252ybxBqO3buy28M4ZfTR3etDIRO5n4MewGnVfYjSz5Hq2ux3bTUBpWyg2Him35LIzOZ_cAX-j5kY_VJpFox8ba3o" rel="preload"/>
+</head>
+<body class="bg-brand-cream text-[#3A2A20] antialiased">
+<!-- BEGIN: NotificationToast -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-brand-brown-dark text-white px-5 py-3.5 rounded-2xl shadow-elevated border border-brand-amber/30" data-purpose="notification-toast" id="toastNotification">
+<span class="w-6 h-6 rounded-full bg-brand-amber flex items-center justify-center text-white text-xs font-bold">✓</span>
+<span class="text-sm font-medium" id="toastMessage">Item successfully updated!</span>
+</div>
+<!-- END: NotificationToast -->
+<!-- BEGIN: MainHeader -->
+<header class="absolute top-0 left-0 right-0 z-30 w-full" data-purpose="site-navigation-header">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex items-center justify-between">
+<!-- Primary Navigation Links -->
+<nav class="hidden md:flex items-center space-x-9 text-sm tracking-wide text-white/90 font-medium" data-purpose="header-nav-links">
+<a class="hover:text-brand-amber transition-colors" href="#home">Home</a>
+<a class="hover:text-brand-amber transition-colors" href="#services">Services</a>
+<a class="hover:text-brand-amber transition-colors" href="#benefits">Expertise</a>
+<a class="hover:text-brand-amber transition-colors" href="#blog">Blog</a>
+<a class="hover:text-brand-amber transition-colors" href="#products">Shop</a>
+<a class="hover:text-brand-amber transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Center Brand Logo -->
+<div class="flex items-center gap-2.5 cursor-pointer" data-purpose="brand-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<div class="w-7 h-7 text-white flex items-center justify-center">
+<!-- Elegant Leaf/Petal Icon -->
+<svg class="w-7 h-7 text-brand-amber" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 3v18m0-18C7.5 3 4 6.5 4 11c0 5 8 10 8 10s8-5 8-10c0-4.5-3.5-8-8-8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-xl lg:text-2xl font-luxury font-semibold tracking-[0.18em] text-white uppercase">Naturaglow</span>
+</div>
+<!-- Right Actions: Cart Icon & Book Appointment CTA -->
+<div class="flex items-center gap-4">
+<!-- Cart Toggle Trigger -->
+<button aria-label="Open Shopping Bag" class="relative p-2.5 text-white/90 hover:text-white rounded-full transition-colors hover:bg-white/10" onclick="toggleCartDrawer(true)">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.19-.578-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-1 bg-brand-amber text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center" id="cartCountBadge">0</span>
+</button>
+<!-- Book Appointment Button -->
+<button class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-brand-amber hover:bg-brand-amber-hover transition-all duration-300 rounded-full shadow-md hover:shadow-lg" onclick="openBookingModal()">
+          Book Appointment
+        </button>
+<!-- Mobile Menu Toggle Button -->
+<button aria-label="Toggle Menu" class="md:hidden p-2 text-white hover:text-brand-amber" onclick="toggleMobileNav()">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Menu -->
+<div class="hidden md:hidden bg-brand-brown-dark/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 transition-all duration-300" id="mobileNav">
+<div class="flex flex-col space-y-4 text-center">
+<a class="text-white text-base py-1" href="#home" onclick="toggleMobileNav()">Home</a>
+<a class="text-white text-base py-1" href="#services" onclick="toggleMobileNav()">Services</a>
+<a class="text-white text-base py-1" href="#benefits" onclick="toggleMobileNav()">Expertise</a>
+<a class="text-white text-base py-1" href="#blog" onclick="toggleMobileNav()">Blog</a>
+<a class="text-white text-base py-1" href="#products" onclick="toggleMobileNav()">Shop</a>
+<a class="text-white text-base py-1" href="#contact" onclick="toggleMobileNav()">Contact</a>
+<button class="mt-2 w-full py-3 text-xs uppercase tracking-widest font-semibold text-white bg-brand-amber rounded-full" onclick="toggleMobileNav(); openBookingModal();">
+          Book Appointment
+        </button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative bg-gradient-to-r from-[#442718] via-[#523221] to-[#391E13] text-white pt-32 pb-24 lg:pt-40 lg:pb-36 overflow-hidden" data-purpose="hero-section" id="home">
+<!-- Subtle luxury glow gradients in background -->
+<div class="absolute top-10 left-1/4 w-96 h-96 bg-brand-amber/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-10 w-[30rem] h-[30rem] bg-[#8B522F]/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Hero Copy & Badges -->
+<div class="lg:col-span-6 z-10 space-y-6">
+<!-- Pill Tag -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
+<span class="w-2 h-2 rounded-full bg-brand-amber animate-pulse"></span>
+<span class="text-xs uppercase tracking-[0.2em] font-medium text-white/90">Pure Beauty, Real Results</span>
+</div>
+<!-- Hero Main Heading -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-luxury font-medium leading-[1.12] tracking-tight text-white">
+            Natural Beauty, <br/>
+<span class="italic font-normal text-[#E8D1BC]">Expert Care</span>
+</h1>
+<p class="text-white/80 text-base sm:text-lg max-w-lg leading-relaxed font-light">
+            Indulge in holistic skin therapy crafted from botanical essences and backed by clinical dermatological mastery. Reveal radiant, energized skin every day.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<button class="px-8 py-3.5 bg-brand-amber hover:bg-brand-amber-hover text-white text-sm font-semibold tracking-wider uppercase rounded-full shadow-elevated transition-all transform hover:-translate-y-0.5" onclick="openBookingModal()">
+              Book Your Treatment
+            </button>
+<a class="px-7 py-3.5 rounded-full border border-white/30 hover:border-white text-white text-sm font-medium tracking-wide transition-colors" href="#services">
+              Explore Services
+            </a>
+</div>
+<!-- 40% Offer Floating Glass Card -->
+<div class="pt-6">
+<div class="glass-card-dark rounded-2xl p-4 sm:p-5 max-w-md flex items-center gap-4 shadow-elevated border border-white/20">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-brand-amber/20 flex-shrink-0 relative border border-white/20">
+<img alt="Special Beauty Dropper Serum Offer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIUa9IlYErlpTcWxCMaNpgVSUQPdm6H6dHCxgfP29Vhfirv9eLTQsU3xeAc4sF3LkWoLEqU52GiBaZ2fkiq54Ac2orYQeL7t08M-fAgNiEi5cZWeug3bD5R-yS2bEoQpKWe9F-6_k-GCx-Z_Q0fy6_F1u3mc9kLKlQqkTTbDnHHU62LZ0YtzOUpVV1D_W9EvAtkxo3OS3sGr02ewNSx4jpBJul4nFgCvanCczsuf1d4VRVVrPugsU"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 text-[11px] font-bold bg-brand-amber text-white rounded">40% OFFER</span>
+<span class="text-xs text-white/75">Selected Beauty Services</span>
+</div>
+<p class="text-xs text-white/90 mt-1 font-light leading-snug">
+                  Trusted with <strong class="font-semibold text-white">4.9 rating</strong> from 10K+ happy glowing clients.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-amber-300 text-xs">
+                  ★★★★★ <span class="text-[11px] text-white/60 ml-1">4.9/5.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Hero Model Imagery -->
+<div class="lg:col-span-6 relative flex justify-center lg:justify-end">
+<div class="relative w-full max-w-md sm:max-w-lg lg:max-w-none">
+<!-- Hero Arch & Framing Image -->
+<div class="relative rounded-t-[14rem] rounded-b-[3rem] overflow-hidden border-4 border-white/15 shadow-2xl aspect-[4/5] bg-[#3B1F12]">
+<img alt="Serene woman with radiant glowing skin applying organic dropper serum" class="w-full h-full object-cover object-center" fetchpriority="high" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjVOI2axkX0kJOmhaXUK4dPF2PDBiBD5pxxRImffkDPLHW3NslIVDICZFX1KwCXcyHasfaBeRvykHEu7V-PDW3kI6wPm9DNq0NWDamim8FSziFHexQlOAO0NWGVvbnLuuJ4rKiKZGS6yrEQJ7ruzobX6ycMp252ybxBqO3buy28M4ZfTR3etDIRO5n4MewGnVfYjSz5Hq2ux3bTUBpWyg2Him35LIzOZ_cAX-j5kY_VJpFox8ba3o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#381F13]/70 via-transparent to-transparent"></div>
+</div>
+<!-- Accent Stamp Badge -->
+<div class="absolute -bottom-5 -left-5 sm:bottom-6 sm:-left-6 glass-card rounded-2xl p-4 shadow-glass border border-white/30 hidden sm:block">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-brand-amber flex items-center justify-center text-white">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<div class="text-xs uppercase tracking-wider text-white/70">100% Organic</div>
+<div class="text-sm font-semibold text-white">Botanical Actives</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: PremiumProductsIntroAndCollage -->
+<section class="py-24 bg-brand-cream relative" data-purpose="about-and-collage-section" id="about">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Left Side: Asymmetric 4-Photo Spa Collage -->
+<div class="lg:col-span-6 order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4 sm:gap-5">
+<!-- Photo 1: Facial Mask Application -->
+<div class="space-y-4">
+<div class="rounded-3xl overflow-hidden shadow-soft aspect-[4/5] relative group bg-[#E3D9CE]">
+<img alt="Facial organic clay mask application at luxury spa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMIoDgmJ_m-mImqbZbbbTHSERUgVX4n7pc3zHInf7wVi9zElzmtvB8yB2q9jFQsx7qZWxtF-V6ItO9wQfGhZwRjXpWVYIhVUeY1zHL5fu-aZOMlPYqUW4ELxMVrQ8t0LNThvg5sz90cLlNcjVWbjcK2Jf3jCkhps1mGNBLMLes0ocMCWBTPohe27lwVylGlPcU0WapeV0FEiClTs-xi9S_6oRlIM4x3IPeE2k_3B8FO0c2YtLPjzc" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-brand-brown/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<!-- Photo 3: Serene Face Portrait -->
+<div class="rounded-3xl overflow-hidden shadow-soft aspect-square relative group bg-[#E3D9CE]">
+<img alt="Woman smiling with radiant fresh skin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvW_rrT74rUHDqLiCPXO94hZsph0PTj0WD31VvWa5faN2IOfqY4kSRy9mpzVEPxUBTRYkAkJAGV2_Fjv-2U-zbrYSz11HYW0YObXY8wgV6xlwhpxZU-SInNjHi4gOFcXarhfZLJXPv_9_kdmBt1IxC5AXrv9uSEPkEOHv6S1ssdkDqbxuf9L2lLpWgRdZvi26TUD3puTAKcBQRweVGumuz-38NbBzVk5RaXQq_ZDH88R2HfD0UbeU" loading="lazy" decoding="async"/>
+</div>
+</div>
+<!-- Photo 2 & 4 Column -->
+<div class="space-y-4 pt-6 sm:pt-10">
+<!-- Photo 2: Woman in White Spa Robe -->
+<div class="rounded-3xl overflow-hidden shadow-soft aspect-square relative group bg-[#E3D9CE]">
+<img alt="Relaxing beauty client resting in warm robe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl2gotzCjObpnSw_9pIpHr1b7Gcj75s2Kq0vCDZbxLq9aIg-xD64Ef0Sf_r6MkE3Ye_wB_RHsBGOBfSIYTiE4M1AQkOGCFTALjSJDKydHSVicIHTy2YL2z9b3uKJKUdyd1PBkMrVc1pVgUVK9_nE9EWGx9KHVt1Yj1YMDVlgHCpuu9kRw-A83Y5VhVn2e351YyTchRKNdzJRFAA1qVTkIBgLJGopvqN7l3Ufx8CF69pTYQyeKNQ6k" loading="lazy" decoding="async"/>
+</div>
+<!-- Photo 4: Treatment Room / Mirror Aesthetic -->
+<div class="rounded-3xl overflow-hidden shadow-soft aspect-[4/5] relative group bg-[#E3D9CE]">
+<img alt="Warm ambient spa treatment room with soft lighting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOQVR7FdXmH1320WeS_5NUVRgcaSyiVA1y0BtrbD99UO1tvof_f_yYm8i_0cYAeHPJtYcgA7buEDXVPT4n7y6TZhovdq4HzyWDwqDvC30GCfmuutQKMeLHA3XRzjqBZJYqWDF8upcE5b4FeiDFnjTKVc0dJKKJVafc1wjon5evqeP69-XCJroV8he5HA57gWVAiTuKMANaPHbL8jAQAH-sFGZppqCV38yonUKBAxs9gMz6_okwHs" loading="lazy" decoding="async"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Narrative Copy & Stat Counters -->
+<div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+<div class="inline-flex items-center gap-2 text-brand-amber font-semibold text-xs tracking-widest uppercase">
+<span class="w-6 h-[1.5px] bg-brand-amber"></span>
+            Holistic Dermatology
+          </div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight leading-tight">
+            We Use Only Premium <br class="hidden sm:inline"/>Beauty Products
+          </h2>
+<p class="text-brand-muted text-base sm:text-lg leading-relaxed font-normal">
+            Indulge in luxurious beauty treatments designed to rejuvenate your skin, relax your body and enhance your natural glow. We strictly source dermatologically certified formulas free of parabens, phthalates, and artificial perfumes.
+          </p>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-amber hover:bg-brand-amber-hover text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow-md transition-all" href="#services">
+<span>Our Services</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<!-- Stat Counters (30+ Collections, 1100+ Items, 90% Satisfied Clients) -->
+<div class="pt-8 grid grid-cols-3 gap-4 border-t border-[#E8DFC0]/70">
+<div>
+<div class="text-2xl sm:text-3xl lg:text-4xl font-luxury font-bold text-brand-brown-dark">30+</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1 font-medium">Collections</div>
+</div>
+<div class="border-l border-[#E8DFC0] pl-4">
+<div class="text-2xl sm:text-3xl lg:text-4xl font-luxury font-bold text-brand-brown-dark">1100+</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1 font-medium">Items Crafted</div>
+</div>
+<div class="border-l border-[#E8DFC0] pl-4">
+<div class="text-2xl sm:text-3xl lg:text-4xl font-luxury font-bold text-brand-brown-dark">90%</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1 font-medium">Satisfied Clients</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PremiumProductsIntroAndCollage -->
+<!-- BEGIN: OurBeautyServices -->
+<section class="py-24 bg-brand-sand/50 relative border-t border-brand-sand" data-purpose="beauty-services-section" id="services">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2 text-brand-amber">
+<!-- Diamond Star Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"></path>
+</svg>
+<span class="text-xs font-semibold tracking-widest uppercase text-brand-amber">Care Catalog</span>
+</div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight">
+            Our Beauty Services
+          </h2>
+</div>
+<p class="text-brand-muted text-sm sm:text-base max-w-md font-normal leading-relaxed">
+          From skincare to relaxation, explore a wide range of treatments tailored to your needs.
+        </p>
+</div>
+<!-- 2x2 Services Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+<!-- Service Card 1: Facial Treatment -->
+<div class="bg-white rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 border border-brand-brown/5" data-purpose="service-card">
+<div class="flex-1 space-y-3 w-full">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-luxury font-bold text-brand-brown-dark">Facial Treatment</h3>
+<span class="text-xl font-bold font-luxury text-brand-brown">$65</span>
+</div>
+<p class="text-brand-muted text-sm font-light">Deep Skin Hydration Therapy</p>
+<div class="pt-2 flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#8C4A2D] text-white tracking-wide">
+                60 MNS · Nabila Karim
+              </span>
+<button class="text-xs font-semibold text-brand-amber hover:underline ml-auto" onclick="prefillBooking('Facial Treatment', 'Nabila Karim', '$65')">
+                Book Now →
+              </button>
+</div>
+</div>
+<div class="w-full sm:w-32 h-32 rounded-2xl overflow-hidden bg-brand-sand flex-shrink-0">
+<img alt="Facial treatment at salon" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0RuwzMs_9sO5n0UQXScZPdNZDvNBbJVWWTaLibWWV9J_9lH78sgYSFnOI0ejhVyuLKbzsRlu3E68vLjimrboh1m4W2DB0_6YqhpPXmM_Uk1oGghtPNCwwmUsh-QbDbAeocOVdyw6naOREXpLCe8jWPnWvh-p4dwbEYSSYstgquUrVSxv8914G3W6907COtm29CSjphjGTaEkXk-cq6STVshOpobIYqLUpmi2YfGOkuTl9RFMrIXQ" loading="lazy" decoding="async"/>
+</div>
+</div>
+<!-- Service Card 2: Hair Styling -->
+<div class="bg-white rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 border border-brand-brown/5" data-purpose="service-card">
+<div class="flex-1 space-y-3 w-full">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-luxury font-bold text-brand-brown-dark">Hair Styling</h3>
+<span class="text-xl font-bold font-luxury text-brand-brown">$70</span>
+</div>
+<p class="text-brand-muted text-sm font-light">Stylish hair for confidence</p>
+<div class="pt-2 flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#8C4A2D] text-white tracking-wide">
+                60 MNS · Nusrat Jahan
+              </span>
+<button class="text-xs font-semibold text-brand-amber hover:underline ml-auto" onclick="prefillBooking('Hair Styling', 'Nusrat Jahan', '$70')">
+                Book Now →
+              </button>
+</div>
+</div>
+<div class="w-full sm:w-32 h-32 rounded-2xl overflow-hidden bg-brand-sand flex-shrink-0">
+<img alt="Hair styling salon procedure" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqdN_kk-BHO2o2oOJZvCE5AXin9Cym6r0iiT0-cCnE_xpz-09j1rDefHCMdeUJCbCy7-0SY0k7K7CJm_meqm6xAN7hjfWF-T0oZb832Neq0zUDVbLLddEZdAnH9mRgwiMqK5IsfRmolhjspCSHp_QMW8zzMZ2OCvR-yQtjjsJHv7G66uNNnFMf6C4A5Av_t6VuLDxszLsbpeqRx7uyLBrWIYB16TmLaoEaZYQv1OPw_xgUlP1Ul6Y" loading="lazy" decoding="async"/>
+</div>
+</div>
+<!-- Service Card 3: Makeup -->
+<div class="bg-white rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 border border-brand-brown/5" data-purpose="service-card">
+<div class="flex-1 space-y-3 w-full">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-luxury font-bold text-brand-brown-dark">Makeup</h3>
+<span class="text-xl font-bold font-luxury text-brand-brown">$55</span>
+</div>
+<p class="text-brand-muted text-sm font-light">Deep Skin Hydration Therapy &amp; Soft Glam</p>
+<div class="pt-2 flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#8C4A2D] text-white tracking-wide">
+                60 MNS · Tanvir Hasan
+              </span>
+<button class="text-xs font-semibold text-brand-amber hover:underline ml-auto" onclick="prefillBooking('Makeup', 'Tanvir Hasan', '$55')">
+                Book Now →
+              </button>
+</div>
+</div>
+<div class="w-full sm:w-32 h-32 rounded-2xl overflow-hidden bg-brand-sand flex-shrink-0">
+<img alt="Professional makeup application" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBIIvdmvyVG7G2ktcH2SRKc0dP6pClq6I8EhF0Kjd0gOJi-Y6FoTjMpwZLSfyMUMBaGCU_PbE4IXH0D9qWTYG6Z4Ao8Afs8mu9gmBx4Pkw2Iy1VuaUJFC6ki5mMv-m5KxurnZf8jl7dsYW1lZDmT29-wsgMpsOeMjCtK3vENNNjCHlO-H4lXpMdRWrDQMxtr4ItUBQyH8-8hgnn_W-4xo0-_WGgTq2CjILe8wnwgTr11YnRR15T-8" loading="lazy" decoding="async"/>
+</div>
+</div>
+<!-- Service Card 4: Eyelash -->
+<div class="bg-white rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 border border-brand-brown/5" data-purpose="service-card">
+<div class="flex-1 space-y-3 w-full">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-luxury font-bold text-brand-brown-dark">Eyelash</h3>
+<span class="text-xl font-bold font-luxury text-brand-brown">$82</span>
+</div>
+<p class="text-brand-muted text-sm font-light">Deep Skin Hydration Therapy &amp; Volume Extensions</p>
+<div class="pt-2 flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#8C4A2D] text-white tracking-wide">
+                60 MNS · Sophia Blake
+              </span>
+<button class="text-xs font-semibold text-brand-amber hover:underline ml-auto" onclick="prefillBooking('Eyelash Extensions', 'Sophia Blake', '$82')">
+                Book Now →
+              </button>
+</div>
+</div>
+<div class="w-full sm:w-32 h-32 rounded-2xl overflow-hidden bg-brand-sand flex-shrink-0">
+<img alt="Eyelash extensions salon care" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVLe7hkhvBfazNMddMHwO8PuMWUlGrbxVnv7jP5KBsgP2wntj5Nf0JLPzIYHZl-Wn0n6i3gMCY5SEhtTImuns5UByQHYLnaHG57TWsvcmaLP0-QUoaYhL8W22DHa7H2WqABo7MtSmcPxC6p8aCAeofWylkMBxAyiGG9ecUNI8U7fK9uraMaxy8GgOI7-kjfDxvSfX1pFwgqyoBSzIIQMJJGp0bmTWheiweEVZmlsCH-FoiJP3Vqqk" loading="lazy" decoding="async"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: OurBeautyServices -->
+<!-- BEGIN: ExpertCareBenefitsSection -->
+<section class="py-24 bg-brand-cream relative overflow-hidden" data-purpose="benefits-and-features-section" id="benefits">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Title -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight">
+          Expert care with premium <br/>
+<span class="italic font-normal">personalized beauty</span>
+</h2>
+</div>
+<!-- Center Oval Aesthetic Collage with 4 Surrounding Benefit Cards -->
+<div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left 2 Benefit Cards -->
+<div class="lg:col-span-3 space-y-6">
+<!-- Benefit 1: Experienced Professionals -->
+<div class="bg-white/90 backdrop-blur rounded-2xl p-5 shadow-soft border border-brand-brown/5 hover:border-brand-amber/40 transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-7 h-7 rounded-full bg-brand-sand flex items-center justify-center text-brand-amber flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-brand-brown-dark">Experienced Professionals</h4>
+<p class="text-xs text-brand-muted mt-1 leading-relaxed">
+                  Experienced professionals deliver trusted premium beauty care.
+                </p>
+</div>
+</div>
+</div>
+<!-- Benefit 3: Personalized Care -->
+<div class="bg-white/90 backdrop-blur rounded-2xl p-5 shadow-soft border border-brand-brown/5 hover:border-brand-amber/40 transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-7 h-7 rounded-full bg-brand-sand flex items-center justify-center text-brand-amber flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-brand-brown-dark">Personalized Care</h4>
+<p class="text-xs text-brand-muted mt-1 leading-relaxed">
+                  Personalized care tailored to your unique needs and goals.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Feature: Circular / Oval Framed Beauty Imagery -->
+<div class="lg:col-span-6 flex justify-center py-4">
+<div class="relative w-72 sm:w-80 h-96 sm:h-[28rem]">
+<!-- Outer delicate golden ring -->
+<div class="absolute inset-0 rounded-full border-2 border-dashed border-brand-amber/30 animate-spin" style="animation-duration: 45s;"></div>
+<!-- Central Oval Beauty Photo -->
+<div class="w-full h-full rounded-full overflow-hidden shadow-elevated border-8 border-white bg-brand-sand relative">
+<img alt="Spa and wellness beauty treatment table with organic oils" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATCOR7Czwo6PH-3qxon2Vxhmtg0Tf4RK_qaz6Mb5rb56cuLCHO5ujzS9P_2gRBRP-JfehX10-Wx3NqSHHW0VHJ8Isad5cwzRs5wRvOU0KBGeDUYL4R1A-LEZPpXdBdZe-UJvT0yVuXWcZV-7PetbyiT4sqHCLKd6tKotOVPU5XSgD9XzUPBORRYDtD7jmUZDAM9sPIfxrzI6h4ucuP7wxs174IlmtFfMdlVHUel80B4oGlGblCN-U" loading="lazy" decoding="async"/>
+<div class="absolute inset-0 bg-brand-brown/10"></div>
+</div>
+</div>
+</div>
+<!-- Right 2 Benefit Cards -->
+<div class="lg:col-span-3 space-y-6">
+<!-- Benefit 2: Hygienic Environment -->
+<div class="bg-white/90 backdrop-blur rounded-2xl p-5 shadow-soft border border-brand-brown/5 hover:border-brand-amber/40 transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-7 h-7 rounded-full bg-brand-sand flex items-center justify-center text-brand-amber flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-brand-brown-dark">Hygienic Environment</h4>
+<p class="text-xs text-brand-muted mt-1 leading-relaxed">
+                  Clean, hygienic environment ensuring safety, comfort, and care.
+                </p>
+</div>
+</div>
+</div>
+<!-- Benefit 4: Affordable Luxury -->
+<div class="bg-white/90 backdrop-blur rounded-2xl p-5 shadow-soft border border-brand-brown/5 hover:border-brand-amber/40 transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-7 h-7 rounded-full bg-brand-sand flex items-center justify-center text-brand-amber flex-shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-brand-brown-dark">Affordable Luxury</h4>
+<p class="text-xs text-brand-muted mt-1 leading-relaxed">
+                  Affordable luxury services without compromising quality or care.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ExpertCareBenefitsSection -->
+<!-- BEGIN: BeautyTipsAndCareInsights -->
+<section class="py-24 bg-brand-sand/40 border-t border-brand-sand" data-purpose="blog-insights-section" id="blog">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Header -->
+<div class="mb-14">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight">
+          Beauty Tips &amp; Care Insights
+        </h2>
+<p class="text-brand-muted text-sm sm:text-base mt-2 font-normal">
+          Stay updated with expert advice and skincare routines for glowing results.
+        </p>
+</div>
+<!-- 2x2 Article Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Blog Card 1 -->
+<article class="bg-white rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-elevated transition-all flex flex-col sm:flex-row items-center gap-5 border border-brand-brown/5">
+<div class="w-full sm:w-40 h-36 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-sand">
+<img alt="Girl smiling with glowing natural skin" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCCYyBjPbratgeo-wfDaxfhaIlOD5uDyL52xoiKz9N8bjtyaa33-8N-wZkJWHvhAWZf1-bSbLUkua5B839mVLDR7rMGlniEDRefmHdJgQbKbiehACh_g1gcUD1HfEtmTBHdy2XBaiTToE-8mScmJL2M5yVolQi5YiRjpF71XS2KmKZAZrEyxMUUGqqT2dxZa2Q5DPYAi1t2M-Pnph4-58CaC1f6xPCb8J7JSNB0bbikYkTycmgjk0" loading="lazy" decoding="async"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted">
+              12th June, 2026 · By Admin
+            </div>
+<h3 class="text-base sm:text-lg font-luxury font-bold text-brand-brown-dark leading-snug">
+              Discover simple skincare tips for healthy natural daily glow
+            </h3>
+<button class="inline-flex items-center text-xs font-semibold text-brand-amber hover:text-brand-brown transition-colors pt-1" onclick="openArticleModal('Discover simple skincare tips for healthy natural daily glow', 'A radiant complexion begins with intentional hydration and barrier protection. Dermatologists recommend starting your morning with a gentle amino-acid cleanser, followed by a hyaluronic-rich essence to seal in moisture before UV exposure.')">
+              Read More <span class="ml-1">›</span>
+</button>
+</div>
+</article>
+<!-- Blog Card 2 -->
+<article class="bg-white rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-elevated transition-all flex flex-col sm:flex-row items-center gap-5 border border-brand-brown/5">
+<div class="w-full sm:w-40 h-36 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-sand">
+<img alt="Woman relaxing outdoors in natural spa setting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZolfq34eWh9uFUWB3RdzNbnlIUgRH4mK0CuYdB0Q8fwnBVgcwn9dWgy_Gddo51yQ5_WaKTmoPWtNhYzd9TUgVKe45g9ocZPx314VFfYCmYMSJdJkBD24jH4MWV9HuHk4wbSfLfD8nPMYCl7drb-ghpQbLz-R1x5XbqfVanAVkUqX925o4OTMfTbZFwkYG_6nfYiyS14mB5nlOVoAg89G1bWXyIIz1uDvZ1b4hzQI0QFJTct62Np8" loading="lazy" decoding="async"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted">
+              12th June, 2026 · By Admin
+            </div>
+<h3 class="text-base sm:text-lg font-luxury font-bold text-brand-brown-dark leading-snug">
+              Learn expert routines for fresh, clear, radiant skin
+            </h3>
+<button class="inline-flex items-center text-xs font-semibold text-brand-amber hover:text-brand-brown transition-colors pt-1" onclick="openArticleModal('Learn expert routines for fresh, clear, radiant skin', 'Night-time repair is when cellular renewal peaks. Discover how combining squalane with micro-encapsulated retinol enhances collagen production without irritating sensitive dermis layers.')">
+              Read More <span class="ml-1">›</span>
+</button>
+</div>
+</article>
+<!-- Blog Card 3 -->
+<article class="bg-white rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-elevated transition-all flex flex-col sm:flex-row items-center gap-5 border border-brand-brown/5">
+<div class="w-full sm:w-40 h-36 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-sand">
+<img alt="Flatlay of beauty skincare products and botanicals" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7v01gcFr6gGcCeoLfaERno9hE5RLM8lHI4RjvFGc17kbnsjirfbBoL2pYjABu2o1uhTLM_nAQsxysgvlnC2FY_ODkztn52X55moNAqcS517b7cs7lPxO2CGBLl-Npsi185RmSrNUIQ3uixZyKfDceHpo9OkNtjGsfFEMYQifplRSxS3L6tt1cbEkevkJARDVqxtp-Jzu861RK9wevk-QxlYyCRkFvt7ry0w2FVLskVaPVhoOHwHE" loading="lazy" decoding="async"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted">
+              12th June, 2026 · By Admin
+            </div>
+<h3 class="text-base sm:text-lg font-luxury font-bold text-brand-brown-dark leading-snug">
+              Explore beauty secrets enhancing confidence and skin health
+            </h3>
+<button class="inline-flex items-center text-xs font-semibold text-brand-amber hover:text-brand-brown transition-colors pt-1" onclick="openArticleModal('Explore beauty secrets enhancing confidence and skin health', 'Self-care rituals grounded in mindfulness dramatically lower cortisol levels. Learn the Japanese lymphatic face massage technique to banish puffiness and restore skin luminosity in five minutes.')">
+              Read More <span class="ml-1">›</span>
+</button>
+</div>
+</article>
+<!-- Blog Card 4 -->
+<article class="bg-white rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-elevated transition-all flex flex-col sm:flex-row items-center gap-5 border border-brand-brown/5">
+<div class="w-full sm:w-40 h-36 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-sand">
+<img alt="Woman applying soothing serum during daily care habit" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmuhi3mgaMUKpJJxToyL7djRsPkNtMgF9gJJpNf-IIXU_76Kz71YD7K8G-hTJcGDN8RU4sTgGadx3BChswMlhBI1AXNT8p5loK7Gp9lHJfcSNP3RNuSEBHCp77bq7BcOm1XrBOQQF4_6l3IWrEeuUOIHODSL369o30ctgFbEJ27C5q42VbVWaAvuTMTs_aavXotJSwCrPK6HqRoMbjWfAfDK0VXQQp6_oA0n7kXQbWRd8ePoKoqYs" loading="lazy" decoding="async"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted">
+              12th June, 2026 · By Admin
+            </div>
+<h3 class="text-base sm:text-lg font-luxury font-bold text-brand-brown-dark leading-snug">
+              Get quick tips for glowing skin with easy daily care habits.
+            </h3>
+<button class="inline-flex items-center text-xs font-semibold text-brand-amber hover:text-brand-brown transition-colors pt-1" onclick="openArticleModal('Get quick tips for glowing skin with easy daily care habits', 'Consistency outweighs complexity every single time. Simple habits like drinking electrolyte-infused water, double-cleansing sunscreen at dusk, and silk pillowcases protect your cutaneous barrier.')">
+              Read More <span class="ml-1">›</span>
+</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- END: BeautyTipsAndCareInsights -->
+<!-- BEGIN: PremiumProductsShopSection -->
+<section class="py-24 bg-brand-cream relative" data-purpose="ecommerce-products-showcase" id="products">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Title -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight">
+          Premium Products <br/>
+<span class="italic font-normal">for Your Skin</span>
+</h2>
+<p class="text-brand-muted text-sm mt-3">Clean botanical formulas tested by leading dermatologists</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- Left Banner: GLOW BY SKIN Feature Brand Display -->
+<div class="lg:col-span-4 bg-[#EDE5DB] rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden shadow-soft border border-brand-brown/5">
+<div class="z-10">
+<span class="text-xs uppercase tracking-[0.25em] font-semibold text-brand-amber">Organic Collection</span>
+<h3 class="text-4xl font-luxury font-bold text-brand-brown-dark tracking-wide mt-2">GLOW</h3>
+<p class="text-xs uppercase tracking-[0.3em] text-brand-muted">BY SKIN</p>
+</div>
+<div class="py-6 flex justify-center z-10">
+<img alt="Glow by skin luxury bottle collection with citrus" class="rounded-2xl shadow-lg object-cover max-h-72 w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJrvQEHx0ZyXEBrxCOETSWiYSria-Zwbv4cjcIFQfzp2xieeQw_26cC-W5_0cp4zUVmbyf0ceZbNTVRz4rjQYD3rIxoy2M-yjyeM00UEl1Ola1_uivhPBDevqvxWyFwe1o62WX3hibvTNoLlylA59dXtwNL1xYyE0mQhRKz-Sux_0KqOLPa-6_DaIXI3bZWrcZfgqi3xfqeP_vQxXc5WHHi4cMMkpErm0u9ResZvhLhQZeaZ1ijN0" loading="lazy" decoding="async"/>
+</div>
+<div class="z-10">
+<p class="text-xs text-brand-muted leading-relaxed font-light">
+              Crafted from cold-pressed botanical extracts and pure vitamin C to illuminate and revitalize natural complexion.
+            </p>
+</div>
+</div>
+<!-- Right Side: 6 Products Grid (3 columns x 2 rows) -->
+<div class="lg:col-span-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+<!-- Product 1: Radiance Serum -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="Radiance Serum bottle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAulYdV6ru-uBcffBTw75gNh1snhXQBtEhHITKp_93Fzv5aZt6s3C2QdNbjokQGSgAW1NmUdCTb6-r14KXTF_hosBlzo6ciRFoRt3k16bm5yHkmxc-p9qPmL6Q_J9OBiSWRxzUEjlPQ-ckNZg4JFwJOeIqbFqsPvqV18wEXhSF3crFIz8HlVD74IM6NUHr4itQuG-yGyzWmwWveLW-e2kYXcRtl89Nw3izrttUylk_weGDBef6aP74" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">Radiance Serum</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.9</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$74.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('Radiance Serum', 74.0, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Product 2: Hydra Serum -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="Hydra Serum bottle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB3UEJeNZYmZ3gtO3xD4DthLqHeucClVXidWqgRMeSZVe9pHwHEJJmmMHOk-x5I_L26dvr0jQSYdcbxx6ojZMfuHc9PKSMhnlIAQsWdUcqT9-v2_55Onw79l7p7BTjas6B4BSAIbavYUf_IoYkIJFotQYSWgQn1cpJxFar6jxfJaoAYYntZEFCm-gVSwwULTufKWRdL2xUlAfbuF7VEHot1cbiz8hm3dJIW3mQ3IguBKQbZMhPHk8" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">Hydra Serum</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.8</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$68.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('Hydra Serum', 68.0, 'https://images.unsplash.com/photo-1608248597358-004d0e9545dc?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Product 3: Renewal Serum -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="Renewal Serum bottle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqxa_bPLibXxC6JxlMjL_VRZ199hP2Rpsw0smeumzM_CW-zLBTCXcb0kwKWNxRj0eZ5ZYzaYbDOeFNb7Rr7M6V0LUldCk0N_T-DsoiJUPcFTNhppP9iMx0zNzq8S6ZMETLiR1dIewhh9WS9pq5nPCJagAKBdhxi5J2vq5Xmo8otsZe2toVN2j59c2Un6ZRIiRYlvP5ym-9nc2bmJV7Dqge_iKMFIBZBj1CFrWsstKV5mzr21ByvfA" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">Renewal Serum</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.7</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$79.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('Renewal Serum', 79.0, 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Product 4: Night Cream -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="Night Cream jar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36H83RUnfdCblQoAp1pKoLALSWRyp5CbXt_sWfDnOKTEA1UUkJ3pZBiz4KCGbtwVJnhmuP1ZDU-kPwrvzhJLdXjm6iJlQ9Ii9oYFe7EFOUBLLdxfG9RxhKcH5aoZ8R7Qrl4x6LQPrFW-qA4H1ReYT10tVkjeC7XnvUaWpt5mw50TEzIlWTdME7CfAK0XKc-sXE_B7v11Ty1286UufTSDCrITzUSkS5LOKa_Zz4I3mpfq93Gw6Sdk" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">Night Cream</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.9</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$42.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('Night Cream', 42.0, 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Product 5: SPF 50Sun Cream -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="SPF 50 Sun Cream tube" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVlKmMJx8xPr25UlIY1ZirhLqIX3uETx4D-KmblWwPTLHFn9d1S-nmOrFoVDRXUxk6XLnrx-9mTV49eMrQHPQ6K_HRFBEePaMFb4Qh3R4jIygFnuUDjzGabfTzI945z-LqzglaaEAKiX-fE_-d1-EKPFr0iZsCKJJocuJO0GVYsCm0HCxREOarmMYkOWKuNHTpzqs8APOjkBizfE3k0Tex4mfPoVrWR4waHlrTBcyw-u_AYJ5Ibxo" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">SPF 50Sun Cream</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.5</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$55.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('SPF 50Sun Cream', 55.0, 'https://images.unsplash.com/photo-1556228852-80b6e5eeff06?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+<!-- Product 6: Gentle Cleanser -->
+<div class="bg-white rounded-2xl p-4 shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between border border-brand-brown/5 group">
+<div class="w-full aspect-square rounded-xl bg-brand-sand overflow-hidden mb-3">
+<img alt="Gentle Cleanser dispenser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANjV4nRwr4KhJC2l3PpYeKWtzklVx7y_C2Af6Cguyp6fZ9onODlog9YkaLa-SGeOhgleQtNj8Wd8Odm83ZQT3LHrfw8-q3ASzO1n4hICIsn_uaQNSky1YUQTC-fT-dgj9qI_9_lNC2cNO7JRZsjGYpQA80LLBy62JSs-IY68sOv1zhcMlRqMXyQzyV_jveaNYZBMtXdTJ6ZBc9GqxXAaeGLKTSVOZfF07ZTlxfRm1oe1JVbgzax8g" loading="lazy" decoding="async"/>
+</div>
+<div>
+<h4 class="font-luxury font-bold text-base text-brand-brown-dark">Gentle Cleanser</h4>
+<div class="flex items-center gap-1 text-xs text-amber-500 mt-1">
+                  ★★★★★ <span class="text-brand-muted text-[11px] ml-1">4.7</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-brand-sand">
+<span class="font-luxury font-bold text-brand-brown text-base">$72.0</span>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-white transition-colors" onclick="addToCart('Gentle Cleanser', 72.0, 'https://images.unsplash.com/photo-1556228722-d9b376577e12?auto=format&amp;fit=crop&amp;w=200&amp;q=80')">
+                  Add to Cart
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PremiumProductsShopSection -->
+<!-- BEGIN: CustomerTestimonials -->
+<section class="py-24 bg-brand-sand/30 border-t border-brand-sand" data-purpose="customer-reviews-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="text-brand-amber text-xs uppercase font-bold tracking-widest mb-2">Kind Words</div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-luxury font-semibold text-brand-brown-dark tracking-tight">
+          Our Customers Are Saying
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-white rounded-3xl p-8 shadow-soft border border-brand-brown/5 flex flex-col justify-between">
+<div>
+<div class="text-brand-amber text-sm mb-4">★★★★★</div>
+<p class="text-brand-brown-dark text-sm sm:text-base italic leading-relaxed font-light">
+              "The facial hydration session with Nabila completely revitalized my dry winter skin. The clinic ambiance is so serene and warm!"
+            </p>
+</div>
+<div class="pt-6 border-t border-brand-sand mt-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-brand-sand overflow-hidden">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ3FywzuFHbHToBkz8KJ7ol9wwK4ZQ3KsC2c9rJiEtGoBF_xLp3P8RTMz3pf1ZdsaCX0_Pd1KRLQRWA2jxJYJ3kmtSFez_9yiW3ZuSBtmTKXgcxutDzDCu8eXSxeXQYO5OaVtp1hxwn-05m1vIi_L0pAedBQiY_OFTJhsypehmByJb7ViENo6MnuyRmL9n65HNB-QsbT72IW-BZy4BP5jg5-pWUcEVKI2lBl85l2QqwnFWn2aXck0" loading="lazy" decoding="async"/>
+</div>
+<div>
+<div class="text-sm font-bold text-brand-brown-dark">Eleanor Vance</div>
+<div class="text-xs text-brand-muted">Verified Client · New York</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-white rounded-3xl p-8 shadow-soft border border-brand-brown/5 flex flex-col justify-between">
+<div>
+<div class="text-brand-amber text-sm mb-4">★★★★★</div>
+<p class="text-brand-brown-dark text-sm sm:text-base italic leading-relaxed font-light">
+              "I bought the Radiance Serum and Gentle Cleanser after my first visit. My dark spots faded within two weeks. Exceptional quality."
+            </p>
+</div>
+<div class="pt-6 border-t border-brand-sand mt-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-brand-sand overflow-hidden">
+<img alt="Marcus Thorne" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB58SjlUf6qH-I1HVs27B9V7NjMCmBoV31jLIP8YFz7qtEbGsbd660TWrxP7YRw5jLgkrCR0m4u-zrh-9B9opeGLHKpPvW3JqcbYU5hCJIui7mM5Jw5DeA-iDx1agHr8Mn1vLOu6u-ZoNGB4mMGPUB4mwO1l1uOYx6N-01QtRLMLWsndPU5JkBn2lC7iyYH1dBNyxLMqbxD9g7ZxbayrDK1L9vuhV_5dVutyP7el1L4Q_7HrSc2f0E" loading="lazy" decoding="async"/>
+</div>
+<div>
+<div class="text-sm font-bold text-brand-brown-dark">Marcus Thorne</div>
+<div class="text-xs text-brand-muted">Verified Client · London</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-white rounded-3xl p-8 shadow-soft border border-brand-brown/5 flex flex-col justify-between">
+<div>
+<div class="text-brand-amber text-sm mb-4">★★★★★</div>
+<p class="text-brand-brown-dark text-sm sm:text-base italic leading-relaxed font-light">
+              "Sophia’s eyelash artistry is unrivaled. They feel lightweight, look effortlessly natural, and lasted through three full weeks of travel."
+            </p>
+</div>
+<div class="pt-6 border-t border-brand-sand mt-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-brand-sand overflow-hidden">
+<img alt="Camilla Zhao" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk5V9b81yGeRpNLwLHLuM3GR7-uwzbIL8fczfBk4fOK8SQrlFHLW_8yC2sVCdoBnxOVMSUvMN5hhQtYxQXcEUC6G-HOtzxMbSsA5_Vc5RC9DYE_uQ-8kBllZl7Su2Z1M3pkZdmfpiXoh_zS9AZVd8gTAtABFUN7uBq5NnxTb5cI6V1njWM1ogU9KkL3chdOsf3ZLqSSo51u-mSPEZ96PVD7UHxCzDdmngdA3tG3wWXwSKo7ZL57P8" loading="lazy" decoding="async"/>
+</div>
+<div>
+<div class="text-sm font-bold text-brand-brown-dark">Camilla Zhao</div>
+<div class="text-xs text-brand-muted">Verified Client · California</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CustomerTestimonials -->
+<!-- BEGIN: SiteFooter -->
+<footer class="bg-[#2B180E] text-[#E0D3CA] pt-20 pb-12 border-t border-white/10" data-purpose="site-footer" id="contact">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Upper Footer Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+<!-- Brand Narrative Column -->
+<div class="lg:col-span-4 space-y-4">
+<div class="flex items-center gap-2.5">
+<svg class="w-7 h-7 text-brand-amber" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 3v18m0-18C7.5 3 4 6.5 4 11c0 5 8 10 8 10s8-5 8-10c0-4.5-3.5-8-8-8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-2xl font-luxury font-semibold tracking-[0.16em] text-white uppercase">Naturaglow</span>
+</div>
+<p class="text-sm text-white/70 leading-relaxed font-light max-w-sm">
+            Elevating everyday beauty through clinical precision, organic extracts, and personalized dermatological therapies.
+          </p>
+<div class="text-xs text-white/60 space-y-1 pt-2">
+<p>📍 742 Evergreen Terrace, Suite 104, Beverly Hills, CA</p>
+<p>📞 +1 (800) 458-GLOW / appointments@naturaglow.com</p>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="lg:col-span-2 space-y-3">
+<h5 class="text-white text-sm font-semibold uppercase tracking-wider">Quick Links</h5>
+<ul class="space-y-2 text-sm text-white/70">
+<li><a class="hover:text-brand-amber transition-colors" href="#home">Home</a></li>
+<li><a class="hover:text-brand-amber transition-colors" href="#services">Our Services</a></li>
+<li><a class="hover:text-brand-amber transition-colors" href="#benefits">Why Choose Us</a></li>
+<li><a class="hover:text-brand-amber transition-colors" href="#products">Shop Formulas</a></li>
+<li><a class="hover:text-brand-amber transition-colors" href="#blog">Beauty Journal</a></li>
+</ul>
+</div>
+<!-- Clinic Hours -->
+<div class="lg:col-span-2 space-y-3">
+<h5 class="text-white text-sm font-semibold uppercase tracking-wider">Opening Hours</h5>
+<div class="space-y-1.5 text-xs text-white/70">
+<p><span class="text-white font-medium">Mon – Fri:</span> 9:00 AM – 8:00 PM</p>
+<p><span class="text-white font-medium">Saturday:</span> 9:00 AM – 6:00 PM</p>
+<p><span class="text-white font-medium">Sunday:</span> 10:00 AM – 5:00 PM</p>
+<div class="pt-3">
+<span class="inline-block px-3 py-1 rounded-full bg-emerald-900/60 text-emerald-300 text-[11px] border border-emerald-500/30">
+                ● Accepting Appointments
+              </span>
+</div>
+</div>
+</div>
+<!-- Newsletter Subscription -->
+<div class="lg:col-span-4 space-y-4">
+<h5 class="text-white text-sm font-semibold uppercase tracking-wider">Stay In The Glow</h5>
+<p class="text-xs text-white/70 font-light">
+            Subscribe to receive exclusive spa offers, beauty advice from our specialists, and private sales.
+          </p>
+<form class="space-y-2.5" onsubmit="handleNewsletterSubmit(event)">
+<div class="flex items-center rounded-full bg-white/10 p-1 border border-white/20 focus-within:border-brand-amber">
+<input class="bg-transparent border-0 text-white placeholder-white/50 text-xs px-4 py-2 w-full focus:ring-0 focus:outline-none" placeholder="Enter your email address" required="" type="email"/>
+<button class="bg-brand-amber hover:bg-brand-amber-hover text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-colors" type="submit">
+                Join
+              </button>
+</div>
+<p class="text-[10px] text-white/40">We respect your privacy. Unsubscribe at any time.</p>
+</form>
+</div>
+</div>
+<!-- Lower Footer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
+<p>© 2026 NATURAGLOW Skincare &amp; Wellness Clinic. All rights reserved.</p>
+<div class="flex items-center space-x-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Spa Etiquette</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+<!-- BEGIN: BookingModal -->
+<div aria-labelledby="bookingModalTitle" aria-modal="true" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" data-purpose="appointment-booking-modal" id="bookingModal" role="dialog">
+<div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-brand-brown/10 transform transition-all">
+<!-- Close button -->
+<button class="absolute top-5 right-5 text-brand-muted hover:text-brand-brown p-1.5 rounded-full hover:bg-brand-sand transition-colors" onclick="closeBookingModal()">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="mb-6">
+<span class="text-xs uppercase font-bold tracking-widest text-brand-amber">Reserve Your Experience</span>
+<h3 class="text-2xl font-luxury font-bold text-brand-brown-dark mt-1" id="bookingModalTitle">Book an Appointment</h3>
+<p class="text-xs text-brand-muted mt-1">Fill in the details below and our team will confirm your session within 2 hours.</p>
+</div>
+<form class="space-y-4 text-xs" id="appointmentForm" onsubmit="handleAppointmentSubmit(event)">
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Select Service</label>
+<select class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" id="modalServiceSelect" required="">
+<option value="Facial Treatment">Facial Treatment ($65 · 60 Mins)</option>
+<option value="Hair Styling">Hair Styling ($70 · 60 Mins)</option>
+<option value="Makeup">Makeup Soft Glam ($55 · 60 Mins)</option>
+<option value="Eyelash Extensions">Eyelash Extensions ($82 · 60 Mins)</option>
+<option value="Full Skin Consultation">Full Skin Consultation ($40 · 30 Mins)</option>
+</select>
+</div>
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Preferred Specialist</label>
+<select class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" id="modalSpecialistSelect">
+<option value="Nabila Karim">Nabila Karim (Skin Specialist)</option>
+<option value="Nusrat Jahan">Nusrat Jahan (Senior Hair Stylist)</option>
+<option value="Tanvir Hasan">Tanvir Hasan (Lead Makeup Artist)</option>
+<option value="Sophia Blake">Sophia Blake (Lash Master)</option>
+<option value="Any Available">Any Available Specialist</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Date</label>
+<input class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" required="" type="date"/>
+</div>
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Time Slot</label>
+<select class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber">
+<option>10:00 AM</option>
+<option>11:30 AM</option>
+<option>02:00 PM</option>
+<option>04:00 PM</option>
+<option>06:00 PM</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Your Full Name</label>
+<input class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" placeholder="e.g. Jessica Miller" required="" type="text"/>
+</div>
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Phone Number</label>
+<input class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2.5 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+</div>
+</div>
+<div>
+<label class="block font-semibold text-brand-brown-dark mb-1">Special Requests or Skin Allergies (Optional)</label>
+<textarea class="w-full rounded-xl border border-brand-sand bg-brand-sand/30 px-3.5 py-2 text-xs text-brand-brown-dark focus:ring-brand-amber focus:border-brand-amber" placeholder="Let us know about sensitive skin or specific preferences..." rows="2"></textarea>
+</div>
+<button class="w-full py-3.5 mt-2 bg-brand-amber hover:bg-brand-amber-hover text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all shadow-md" type="submit">
+          Confirm Appointment Request
+        </button>
+</form>
+</div>
+</div>
+<!-- END: BookingModal -->
+<!-- BEGIN: CartDrawer -->
+<div aria-labelledby="cartDrawerTitle" aria-modal="true" class="fixed inset-0 z-50 hidden" data-purpose="shopping-cart-drawer" id="cartDrawer" role="dialog">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer(false)"></div>
+<!-- Drawer Panel -->
+<div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col justify-between p-6 sm:p-8 transform transition-transform">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-brand-sand">
+<div class="flex items-center gap-2">
+<h3 class="font-luxury font-bold text-xl text-brand-brown-dark" id="cartDrawerTitle">Your Skincare Bag</h3>
+<span class="text-xs bg-brand-sand text-brand-brown font-semibold px-2 py-0.5 rounded-full" id="drawerCount">0 items</span>
+</div>
+<button class="text-brand-muted hover:text-brand-brown p-1" onclick="toggleCartDrawer(false)">✕</button>
+</div>
+<!-- Dynamic Cart List -->
+<div class="py-4 space-y-4 max-h-[55vh] overflow-y-auto pr-1" id="cartItemList">
+<!-- Empty State -->
+<div class="text-center py-12 text-brand-muted space-y-2" id="emptyCartMessage">
+<p class="text-sm">Your bag is currently empty.</p>
+<p class="text-xs text-brand-muted/80">Explore our clean serums and moisturizers to get started.</p>
+</div>
+</div>
+</div>
+<!-- Drawer Bottom Subtotal & Checkout -->
+<div class="border-t border-brand-sand pt-4 space-y-3">
+<div class="flex items-center justify-between text-sm font-medium text-brand-brown-dark">
+<span>Subtotal</span>
+<span class="font-luxury font-bold text-lg" id="cartSubtotal">$0.00</span>
+</div>
+<p class="text-[11px] text-brand-muted">Taxes &amp; shipping calculated at final checkout.</p>
+<button class="w-full py-3.5 bg-brand-amber hover:bg-brand-amber-hover text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all shadow-md" onclick="handleCheckout()">
+          Proceed to Checkout
+        </button>
+</div>
+</div>
+</div>
+<!-- END: CartDrawer -->
+<!-- BEGIN: ArticleReaderModal -->
+<div aria-labelledby="modalArticleTitle" aria-modal="true" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" data-purpose="blog-article-modal" id="articleModal" role="dialog">
+<div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative border border-brand-brown/10">
+<button class="absolute top-5 right-5 text-brand-muted hover:text-brand-brown p-1.5 rounded-full hover:bg-brand-sand" onclick="closeArticleModal()">
+        ✕
+      </button>
+<div class="text-xs font-semibold text-brand-amber uppercase tracking-widest mb-1">Naturaglow Journal</div>
+<h3 class="text-2xl font-luxury font-bold text-brand-brown-dark mb-4" id="modalArticleTitle">Article Title</h3>
+<div class="text-sm text-brand-muted leading-relaxed font-light space-y-3" id="modalArticleContent">
+<!-- Injected via script -->
+</div>
+<div class="pt-6 mt-6 border-t border-brand-sand flex justify-end">
+<button class="px-5 py-2 text-xs font-semibold uppercase tracking-wider bg-brand-brown text-white rounded-full" onclick="closeArticleModal()">
+          Close Article
+        </button>
+</div>
+</div>
+</div>
+<!-- END: ArticleReaderModal -->
+<!-- BEGIN: ApplicationScripts -->
+<script defer="" src="assets/js/main.js"></script>
+<!-- END: ApplicationScripts -->
+</body></html>
