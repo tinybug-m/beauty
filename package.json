@@ -6,6 +6,7 @@
   "scripts": {
     "build:css": "tailwindcss -i src/input.css -o assets/css/styles.css --minify",
     "watch:css": "tailwindcss -i src/input.css -o assets/css/styles.css --watch",
+    "build:fonts": "python3 scripts/fetch-fonts.py",
     "serve": "python3 -m http.server 4173"
   },
   "keywords": [],

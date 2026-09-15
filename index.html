@@ -7,10 +7,8 @@
 <meta name="description" content="Natural, clinically-backed skincare and beauty treatments. Book facials, hair styling, makeup, and lash appointments, or shop clean botanical skincare online at Naturaglow."/>
 <meta name="theme-color" content="#382014"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C68B59' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18m0-18C7.5 3 4 6.5 4 11c0 5 8 10 8 10s8-5 8-10c0-4.5-3.5-8-8-8z'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
-<!-- Google Fonts: Playfair Display for luxury editorial serif, Plus Jakarta Sans for refined sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Self-hosted Playfair Display + Plus Jakarta Sans (assets/fonts/, built by scripts/fetch-fonts.py) — avoids a third-party request to Google Fonts that CSP-sandboxed viewers (VS Code webviews, some intranets) block, which was silently falling back to system fonts -->
+<link href="assets/css/fonts.css" rel="stylesheet"/>
 <!-- Precompiled, purged Tailwind build (see package.json "build:css") instead of the in-browser CDN compiler -->
 <link href="assets/css/styles.css" rel="stylesheet"/>
 <!-- Preload the LCP hero image so it starts fetching before CSS/JS finish -->
